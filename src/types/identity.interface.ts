@@ -128,5 +128,5 @@ export interface ITemplate {
 
 export interface ITemplateProps {
   webInfo: IWebsite;
-  goldPriceData: TGoldPriceData[];
+  goldPriceData?: TGoldPriceData[];
 }

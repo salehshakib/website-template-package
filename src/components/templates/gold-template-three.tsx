@@ -10,11 +10,15 @@ import useGoldPrices from "../../hooks/use-gold-prices";
 import { ITemplateProps } from "../../types/identity.interface";
 import { calculateModifiedGoldPrices } from "../../lib/identity";
 import { formatNumberWithCommas } from "../../lib/utils";
+import {
+  gold9999Icon,
+  gold9999KgIcon,
+  jewellery22kIcon,
+  kiloBar995Icon,
+  tenTolaIcon,
+} from "../../constants/image.constants";
 
-export default function GoldTemplateThree({
-  webInfo,
-  goldPriceData,
-}: ITemplateProps) {
+export default function GoldTemplateThree({ webInfo }: ITemplateProps) {
   const goldPrice = useGoldPrices();
   if (!goldPrice) return null;
 
@@ -28,31 +32,31 @@ export default function GoldTemplateThree({
       name: "TEN TOLA BAR",
       weight: "TTB",
       price: modifiedGoldPrices.tenTola,
-      icon: "/template-images/TEN-TOLA-BAR.jpg",
+      icon: tenTolaIcon,
     },
     {
       name: "JEWELLERY 22K",
       weight: "1GM",
       price: modifiedGoldPrices.jewellery22k,
-      icon: "/template-images/JEWELLERY-22K.jpg",
+      icon: jewellery22kIcon,
     },
     {
       name: "GOLD 9999",
       weight: "1GM",
       price: modifiedGoldPrices.gold9999Gm,
-      icon: "/template-images/GOLD-9999.jpg",
+      icon: gold9999Icon,
     },
     {
       name: "GOLD 9999",
       weight: "1KG",
       price: modifiedGoldPrices.gold9999Kg,
-      icon: "/template-images/GOLD-9999-1KG.jpg",
+      icon: gold9999KgIcon,
     },
     {
       name: "KILO BAR 995",
       weight: "1KG",
       price: modifiedGoldPrices.kilobar995,
-      icon: "/template-images/KILO-BAR-995.jpg",
+      icon: kiloBar995Icon,
     },
   ];
 

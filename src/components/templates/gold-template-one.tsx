@@ -10,7 +10,7 @@ import { ProductList } from "../gold-trading-comp/product-list";
 const GoldTemplateOne = ({ webInfo, goldPriceData }: ITemplateProps) => {
   const goldPrice = useGoldPrices();
 
-  if (!goldPrice) return null;
+  if (!goldPrice || !goldPriceData) return null;
 
   return (
     <div className="min-h-screen bg-[#00072d]">

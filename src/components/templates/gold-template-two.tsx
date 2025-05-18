@@ -11,7 +11,7 @@ import StarryNight from "../gold-trading-comp/starry-night";
 const GoldTemplateTwo = ({ webInfo, goldPriceData }: ITemplateProps) => {
   const goldPrice = useGoldPrices();
 
-  if (!goldPrice) return null;
+  if (!goldPrice || !goldPriceData) return null;
   return (
     <div className="min-h-screen bg-[#000000]">
       <StarryNight />

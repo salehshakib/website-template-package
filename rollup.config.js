@@ -4,6 +4,7 @@ import typescript from "@rollup/plugin-typescript";
 import postcss from "rollup-plugin-postcss";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import replace from "@rollup/plugin-replace";
+import image from "@rollup/plugin-image";
 
 export default {
   input: "src/index.ts",
@@ -22,6 +23,7 @@ export default {
     },
   ],
   plugins: [
+    image(),
     peerDepsExternal(),
     resolve(),
     replace({

@@ -5,9 +5,10 @@ import Image, { StaticImageData } from "next/image";
 import { useCommonImage } from "../../api/api-stores/queries/use-common-image";
 import { cn } from "../../lib/utils";
 import { Skeleton } from "../ui/skeleton";
-
-const defaultBusinessImage = "/default-business.png";
-const defaultUserImage = "/default-user.png";
+import {
+  defaultBusinessImage,
+  defaultUserImage,
+} from "../../constants/image.constants";
 
 type Props = {
   fileName?: string;
@@ -36,9 +37,6 @@ const CommonImageShow = ({
     (data?.message?.startsWith("http") && data?.message) ||
     fallbackImage ||
     (type === "avatar" ? defaultUserImage : defaultBusinessImage);
-  // base === BASE_URL.DEFAULT
-  //   ?
-  //   : new URL("/api/upload/" + fileName, BASE_URLS[base]).toString();
 
   if (loading) {
     return (

@@ -1,6 +1,6 @@
 {
   "name": "website-templates",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "A React component for an Website Templates styled with Tailwind CSS",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -21,11 +21,12 @@
   "dependencies": {
     "@phosphor-icons/react": "^2.1.7",
     "@radix-ui/react-slot": "^1.1.1",
+    "@rollup/plugin-image": "^3.0.3",
     "class-variance-authority": "^0.6.1",
     "clsx": "^1.2.1",
+    "framer-motion": "^11.18.1",
     "lucide-react": "^0.474.0",
     "metal-price-live": "^0.3.3",
-    "framer-motion": "^11.18.1",
     "next": "^15.3.2",
     "tailwind-merge": "^1.13.2"
   },
