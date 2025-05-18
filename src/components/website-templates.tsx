@@ -81,7 +81,7 @@ export default function WebsiteTemplates({ websiteId }: WebsiteTemplatesProps) {
       ) : matchedIndex === 1 ? (
         <GoldTemplateTwo webInfo={myWebsite} goldPriceData={goldPriceData} />
       ) : matchedIndex === 2 ? (
-        <GoldTemplateThree webInfo={myWebsite} goldPriceData={goldPriceData} />
+        <GoldTemplateThree webInfo={myWebsite} />
       ) : (
         <div className="flex min-h-screen items-center justify-center">
           Template not found
