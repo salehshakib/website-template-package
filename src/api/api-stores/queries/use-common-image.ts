@@ -1,5 +1,6 @@
-import { useQuery } from "@tanstack/react-query";
-import { fetchGet } from "../../../lib/custom-fetch";
+import { useFetchData } from "./use-fetch-data";
+
+const baseApiUrl = process.env.NEXT_PUBLIC_API_URL;
 
 const baseUrl = "media-svc/image";
 
@@ -12,8 +13,6 @@ export const mediaApi = Object.freeze({
   GET_PRESIGNED_URL: `${baseUrl}/get-presigned-url`,
 });
 
-export const bigdrawMediaUrl = "/upload";
-
 export const useCommonImage = (
   imagePath?: string,
   isEnabled: boolean | (() => boolean) = true
@@ -21,11 +20,11 @@ export const useCommonImage = (
   const enabled =
     !!imagePath && (typeof isEnabled === "function" ? isEnabled() : isEnabled);
 
-  return useQuery({
-    queryKey: ["imagePath", imagePath],
-    queryFn: () => fetchGet(`${mediaApi.GET_PRESIGNED_URL}/${imagePath}`),
-    enabled,
-    // 10 min
-    staleTime: 10 * 60 * 1000,
+  const { data, isLoading } = useFetchData({
+    url: enabled
+      ? `${baseApiUrl}/${mediaApi.GET_PRESIGNED_URL}/${imagePath}`
+      : "",
   });
+
+  return { data, isLoading };
 };

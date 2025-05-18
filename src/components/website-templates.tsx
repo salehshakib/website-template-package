@@ -70,8 +70,7 @@ export default function WebsiteTemplates({ websiteId }: WebsiteTemplatesProps) {
     (t: any) => t._id === myWebsite?.templateInfo?._id
   );
 
-  if (myWebsite === undefined) return <div>Website not found</div>;
-  if (goldPriceData === undefined) return <div>goldPriceData not found</div>;
+  if (!myWebsite || !goldPriceData) return <Loading />;
 
   return (
     <>
