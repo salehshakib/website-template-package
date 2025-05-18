@@ -1,1 +1,2 @@
-export { AllApps } from "./AllApps";
+import WebsiteTemplates from "./website-templates";
+export { WebsiteTemplates };
