@@ -25,17 +25,14 @@ Import and use the component in your React application:
 
 ```jsx
 import React from "react";
+import { useParams } from "next/navigation";
 import { WebsiteTemplates } from "website-templates";
 
-const App = () => {
-  return (
-    <div>
-      <WebsiteTemplates websiteId={id} />
-    </div>
-  );
-};
+export default function page() {
+  const { websiteId } = useParams();
 
-export default App;
+  return <WebsiteTemplates websiteId={websiteId} />;
+}
 ```
 
 ---
