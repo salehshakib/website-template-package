@@ -3,6 +3,12 @@
 import Image from "next/image";
 import { IWebsite } from "../../types/identity.interface";
 import { GoldPrice } from "../../types/gold-price.interface";
+import {
+  gold9999Icon,
+  jewellery22kIcon,
+  kiloBar995Icon,
+  tenTolaIcon,
+} from "../../constants/image.constants";
 
 const decimalPlace = 2;
 
@@ -32,7 +38,7 @@ export function ProductList({
           : (goldPrice.k22Price - jewellery22k?.amount).toFixed(decimalPlace) ||
             0,
       currency: "AED",
-      image: "/jewellery-22k.png",
+      image: jewellery22kIcon,
     },
     {
       name: "Gold 9999",
@@ -44,7 +50,7 @@ export function ProductList({
           : (goldPrice.k24Price - gold9999Gm?.amount).toFixed(decimalPlace) ||
             0,
       currency: "AED",
-      image: "/gold-9999.png",
+      image: gold9999Icon,
     },
     {
       name: "Ten Tola",
@@ -59,7 +65,7 @@ export function ProductList({
               decimalPlace
             ) || 0,
       currency: "AED",
-      image: "/ten-tola.png",
+      image: tenTolaIcon,
     },
     {
       name: "Gold 9999",
@@ -74,7 +80,7 @@ export function ProductList({
               decimalPlace
             ) || 0,
       currency: "AED",
-      image: "/gold-9999.png",
+      image: gold9999Icon,
     },
     {
       name: "Kilo Bar 995",
@@ -89,7 +95,7 @@ export function ProductList({
               decimalPlace
             ) || 0,
       currency: "AED",
-      image: "/kilo-bar-995.png",
+      image: kiloBar995Icon,
     },
   ];
 
