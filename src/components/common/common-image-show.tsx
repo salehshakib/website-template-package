@@ -9,6 +9,7 @@ import {
   defaultBusinessImage,
   defaultUserImage,
 } from "../../constants/image.constants";
+import { useFetchData } from "../../api/api-stores/queries/use-fetch-data";
 
 type Props = {
   fileName?: string;
@@ -20,6 +21,14 @@ type Props = {
   fallbackImage?: StaticImageData;
 };
 
+const baseApiUrl = process.env.NEXT_PUBLIC_API_URL;
+
+const baseUrl = "media-svc/image";
+
+export const mediaApi = Object.freeze({
+  GET_PRESIGNED_URL: `${baseUrl}/get-presigned-url`,
+});
+
 const CommonImageShow = ({
   fileName,
   className,
@@ -29,7 +38,9 @@ const CommonImageShow = ({
   isLoading = false,
   fallbackImage,
 }: Props) => {
-  const { data, isLoading: isImageLoading } = useCommonImage(fileName);
+  const { data, isLoading: isImageLoading } = useFetchData({
+    url: `${baseApiUrl}${mediaApi.GET_PRESIGNED_URL}/${fileName}`,
+  });
 
   const loading = isLoading || isImageLoading;
 
