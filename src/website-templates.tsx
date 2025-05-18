@@ -6,6 +6,7 @@ import GoldTemplateThree from "./components/templates/gold-template-three";
 import GoldTemplateTwo from "./components/templates/gold-template-two";
 import { buildFSStr } from "./lib/filter-sort-params";
 import Loading from "./loading";
+import { ApiProvider } from "./provider/query-client-provider";
 import {
   ITemplate,
   IWebsite,
@@ -72,7 +73,7 @@ export default function WebsiteTemplates({ websiteId }: WebsiteTemplatesProps) {
   );
 
   return (
-    <>
+    <ApiProvider>
       {loading ? (
         <Loading />
       ) : matchedIndex === 0 ? (
@@ -86,6 +87,6 @@ export default function WebsiteTemplates({ websiteId }: WebsiteTemplatesProps) {
           Template not found
         </div>
       )}
-    </>
+    </ApiProvider>
   );
 }

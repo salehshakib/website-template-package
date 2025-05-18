@@ -25,7 +25,7 @@ Import and use the component in your React application:
 
 ```jsx
 import React from "react";
-import WebsiteTemplates from "website-template";
+import { WebsiteTemplates } from "website-templates";
 
 const App = () => {
   return (
