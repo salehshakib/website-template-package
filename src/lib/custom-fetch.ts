@@ -7,7 +7,7 @@ import {
   logOut,
 } from "../auth/config/custom-auth";
 
-const baseApiUrl = process.env.NEXT_PUBLIC_IDENTITY_API_URL;
+const baseApiUrl = "https://backend.staging.identity.dreamemirates.com/api/";
 
 const buildUrlWithParams = (url: string, params?: Record<string, any>) => {
   if (!url || typeof url !== "string") {

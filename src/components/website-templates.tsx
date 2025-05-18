@@ -20,6 +20,7 @@ const identityApi = Object.freeze({
 
 interface WebsiteTemplatesProps {
   websiteId: string;
+  isProduction?: boolean;
 }
 
 const searchFilter = ({ id, category }: { id?: string; category?: string }) => {
@@ -70,6 +71,8 @@ export default function WebsiteTemplates({ websiteId }: WebsiteTemplatesProps) {
   const matchedIndex = templatesData?.findIndex(
     (t: any) => t._id === myWebsite?.templateInfo?._id
   );
+
+  console.log({ myWebsite });
 
   if (!myWebsite || !goldPriceData) return <Loading />;
 

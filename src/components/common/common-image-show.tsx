@@ -20,9 +20,8 @@ type Props = {
   fallbackImage?: StaticImageData;
 };
 
-const baseApiUrl = process.env.NEXT_PUBLIC_API_URL;
-
-const baseUrl = "media-svc/image";
+const baseUrl =
+  "https://staging.keycloak.dreamemirates.com/api/v1/media-svc/image";
 
 export const mediaApi = Object.freeze({
   GET_PRESIGNED_URL: `${baseUrl}/get-presigned-url`,
@@ -38,7 +37,7 @@ const CommonImageShow = ({
   fallbackImage,
 }: Props) => {
   const { data, isLoading: isImageLoading } = useFetchData({
-    url: `${baseApiUrl}${mediaApi.GET_PRESIGNED_URL}/${fileName}`,
+    url: `${mediaApi.GET_PRESIGNED_URL}/${fileName}`,
   });
 
   const loading = isLoading || isImageLoading;
