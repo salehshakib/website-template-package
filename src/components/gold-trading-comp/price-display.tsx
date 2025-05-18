@@ -13,7 +13,7 @@ type PriceDataProps = {
   askPriceModification: IPriceModification;
   bidPriceModification: IPriceModification;
   goldPrice: GoldPrice;
-  goldPriceData: TGoldPriceData[];
+  goldPriceData?: TGoldPriceData[];
 };
 
 type PriceDataPoint = {
