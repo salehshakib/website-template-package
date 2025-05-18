@@ -29,12 +29,13 @@ export function useFetchData<T = any>({ url, params }: UseFetchDataProps) {
 
     fetchGet(url, params)
       .then((res) => {
-        console.log({ res });
         // Extract response data
-        const responseData: T | undefined = res?.data ?? res?.result?.data;
+        const responseData: T | undefined =
+          res?.data ?? res?.result?.data ?? res;
 
         // Extract pagination
         let paginationData: Pagination | undefined;
+
         if (res?.pagination) {
           paginationData = res.pagination;
         } else if (res?.result) {

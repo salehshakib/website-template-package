@@ -43,8 +43,6 @@ const CommonImageShow = ({
 
   const loading = isLoading || isImageLoading;
 
-  console.log(data);
-
   const imageUrl =
     (data?.message?.startsWith("http") && data?.message) ||
     fallbackImage ||
