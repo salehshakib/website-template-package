@@ -10,13 +10,13 @@ A React component for an Website Templates styled with Tailwind CSS.
 You can install this package using npm or yarn:
 
 ```sh
-npm install react-allapps-dropdown
+npm install website-templates
 ```
 
 or
 
 ```sh
-yarn add react-allapps-dropdown
+yarn add website-templates
 ```
 
 ## Usage
