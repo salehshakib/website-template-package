@@ -31,5 +31,5 @@ jobs:
       - name: Run semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }} # Ensure this secret is set in your repository settings
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }} # Ensure this secret is set in your repository settings
         run: npx semantic-release
