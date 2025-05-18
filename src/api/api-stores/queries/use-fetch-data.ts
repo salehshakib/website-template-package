@@ -29,6 +29,7 @@ export function useFetchData<T = any>({ url, params }: UseFetchDataProps) {
 
     fetchGet(url, params)
       .then((res) => {
+        console.log({ res });
         // Extract response data
         const responseData: T | undefined = res?.data ?? res?.result?.data;
 
