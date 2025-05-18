@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/salehshakib/website-template-package/compare/v1.3.0...v1.3.1) (2025-05-18)
+
+
+### Bug Fixes
+
+* update version to 1.3.1 in package.json ([293231c](https://github.com/salehshakib/website-template-package/commit/293231cc0e22e5374383cf05078d1f557a991abf))
+
 # 1.0.0 (2025-05-18)
 
 
