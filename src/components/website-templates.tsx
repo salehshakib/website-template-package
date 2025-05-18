@@ -23,6 +23,8 @@ interface WebsiteTemplatesProps {
   isProduction?: boolean;
 }
 
+const currentTime = Math.floor(Date.now() / 1000);
+
 const searchFilter = ({ id, category }: { id?: string; category?: string }) => {
   const filterGroups: [string, string, string][] = [];
 
@@ -37,8 +39,6 @@ const searchFilter = ({ id, category }: { id?: string; category?: string }) => {
 
   return buildFSStr({ filters: filterGroups });
 };
-
-const currentTime = Math.floor(Date.now() / 1000);
 
 export default function WebsiteTemplates({ websiteId }: WebsiteTemplatesProps) {
   const { data, isLoading: websiteLoading } = useFetchData<IWebsite[]>({
