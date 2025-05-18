@@ -22,7 +22,7 @@ export const useCommonImage = (
 
   const { data, isLoading } = useFetchData({
     url: enabled
-      ? `${baseApiUrl}/${mediaApi.GET_PRESIGNED_URL}/${imagePath}`
+      ? `${baseApiUrl}${mediaApi.GET_PRESIGNED_URL}/${imagePath}`
       : "",
   });
 
