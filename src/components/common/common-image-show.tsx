@@ -2,14 +2,13 @@
 
 import Image, { StaticImageData } from "next/image";
 
-import { useCommonImage } from "../../api/api-stores/queries/use-common-image";
-import { cn } from "../../lib/utils";
-import { Skeleton } from "../ui/skeleton";
+import { useFetchData } from "../../api/api-stores/queries/use-fetch-data";
 import {
   defaultBusinessImage,
   defaultUserImage,
 } from "../../constants/image.constants";
-import { useFetchData } from "../../api/api-stores/queries/use-fetch-data";
+import { cn } from "../../lib/utils";
+import { Skeleton } from "../ui/skeleton";
 
 type Props = {
   fileName?: string;
