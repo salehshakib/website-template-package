@@ -1,3 +1,10 @@
+## [1.3.2](https://github.com/salehshakib/website-template-package/compare/v1.3.1...v1.3.2) (2025-05-18)
+
+
+### Bug Fixes
+
+* move currentTime declaration to the top of the file for better readability ([be8571b](https://github.com/salehshakib/website-template-package/commit/be8571b2f30626ee32518208fb39785ae90a3179))
+
 ## [1.3.1](https://github.com/salehshakib/website-template-package/compare/v1.3.0...v1.3.1) (2025-05-18)
 
 
