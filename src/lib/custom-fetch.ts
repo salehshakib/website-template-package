@@ -9,18 +9,13 @@ import {
 
 const baseApiUrl = process.env.NEXT_PUBLIC_IDENTITY_API_URL;
 
-const buildUrlWithParams = (
-  url: string,
-  params?: Record<string, any>
-  // base: BaseUrlType = BASE_URL.DEFAULT
-) => {
+const buildUrlWithParams = (url: string, params?: Record<string, any>) => {
   if (!url || typeof url !== "string") {
     throw new Error(
       "Invalid URL provided. Ensure the URL is a non-empty string."
     );
   }
 
-  // const baseApiUrl = BASE_URLS[base]; // ✅ Now correctly typed
   const newUrl = new URL(url, baseApiUrl);
 
   if (params) {
@@ -41,7 +36,6 @@ const customFetch = async (
   method: "GET" | "POST" | "PUT" | "PATCH" | "DELETE" = "GET",
   body: any = null,
   isMultipart = false
-  // base: BaseUrlType = BASE_URL.DEFAULT // ✅ Using correct type
 ) => {
   let token = localStorage.getItem("token") || null;
 
@@ -63,7 +57,6 @@ const customFetch = async (
   };
 
   try {
-    // const baseApiUrl = BASE_URLS[base]; // ✅ Now correctly typed
     const fullUrl = new URL(url, baseApiUrl).toString();
 
     const response = await fetch(fullUrl, options);
@@ -89,11 +82,7 @@ const customFetch = async (
   }
 };
 
-export const fetchGet = async (
-  url: string,
-  params?: Record<string, any>
-  // base: BaseUrlType = BASE_URL.DEFAULT
-) => {
+export const fetchGet = async (url: string, params?: Record<string, any>) => {
   const fullUrl = buildUrlWithParams(url, params);
   return customFetch(fullUrl, "GET", null, false);
 };

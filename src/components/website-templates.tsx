@@ -1,17 +1,16 @@
 "use client";
 
-import useFetchQuery from "./api/api-stores/queries/use-fetch-query";
-import GoldTemplateOne from "./components/templates/gold-template-one";
-import GoldTemplateThree from "./components/templates/gold-template-three";
-import GoldTemplateTwo from "./components/templates/gold-template-two";
-import { buildFSStr } from "./lib/filter-sort-params";
-import Loading from "./loading";
-import { ApiProvider } from "./provider/query-client-provider";
+import { useFetchData } from "../api/api-stores/queries/use-fetch-data";
+import { buildFSStr } from "../lib/filter-sort-params";
+import Loading from "../loading";
 import {
   ITemplate,
   IWebsite,
   TGoldPriceData,
-} from "./types/identity.interface";
+} from "../types/identity.interface";
+import GoldTemplateOne from "./templates/gold-template-one";
+import GoldTemplateThree from "./templates/gold-template-three";
+import GoldTemplateTwo from "./templates/gold-template-two";
 
 const identityApi = Object.freeze({
   GET_ALL_WEBSITES: "websites",
@@ -40,14 +39,13 @@ const searchFilter = ({ id, category }: { id?: string; category?: string }) => {
 const currentTime = Math.floor(Date.now() / 1000);
 
 export default function WebsiteTemplates({ websiteId }: WebsiteTemplatesProps) {
-  const { data, isLoading: websiteLoading } = useFetchQuery<IWebsite[]>({
+  const { data, isLoading: websiteLoading } = useFetchData<IWebsite[]>({
     url: identityApi.GET_ALL_WEBSITES,
     params: { filter: searchFilter({ id: websiteId }) },
-    isEnabled: !!websiteId,
   });
 
   const { data: goldPriceData, isLoading: isGoldPriceDataLoading } =
-    useFetchQuery<TGoldPriceData[]>({
+    useFetchData<TGoldPriceData[]>({
       url: "https://pricefeed.dreamemirates.com/api/v1/market-price",
       params: {
         startTime: currentTime - 3600,
@@ -56,7 +54,7 @@ export default function WebsiteTemplates({ websiteId }: WebsiteTemplatesProps) {
     });
 
   const { data: templatesData, isLoading: isTemplatesDataLoading } =
-    useFetchQuery<ITemplate[]>({
+    useFetchData<ITemplate[]>({
       url: identityApi.GET_ALL_TEMPLATES,
       params: {
         filter: searchFilter({ category: "Website" }),
@@ -72,8 +70,11 @@ export default function WebsiteTemplates({ websiteId }: WebsiteTemplatesProps) {
     (t: any) => t._id === myWebsite?.templateInfo?._id
   );
 
+  if (myWebsite === undefined) return <div>Website not found</div>;
+  if (goldPriceData === undefined) return <div>goldPriceData not found</div>;
+
   return (
-    <ApiProvider>
+    <>
       {loading ? (
         <Loading />
       ) : matchedIndex === 0 ? (
@@ -87,6 +88,6 @@ export default function WebsiteTemplates({ websiteId }: WebsiteTemplatesProps) {
           Template not found
         </div>
       )}
-    </ApiProvider>
+    </>
   );
 }

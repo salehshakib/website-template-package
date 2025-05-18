@@ -1,3 +1,3 @@
-import WebsiteTemplates from "./website-templates";
+import WebsiteTemplates from "./components/website-templates";
 
 export { WebsiteTemplates };
