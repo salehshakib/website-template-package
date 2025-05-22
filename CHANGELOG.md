@@ -1,3 +1,10 @@
+## [1.3.3](https://github.com/salehshakib/website-template-package/compare/v1.3.2...v1.3.3) (2025-05-22)
+
+
+### Bug Fixes
+
+* update package version to 1.3.2 and improve price data handling in PriceDisplay component ([f9f037b](https://github.com/salehshakib/website-template-package/commit/f9f037b634a1feb1db5ffa24dab9093819e630eb))
+
 ## [1.3.2](https://github.com/salehshakib/website-template-package/compare/v1.3.1...v1.3.2) (2025-05-18)
 
 
