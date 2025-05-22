@@ -85,6 +85,8 @@ export function PriceDisplay({
     return () => clearInterval(interval);
   }, [goldPriceData, goldPrice, askPriceModification]);
 
+  console.log("first");
+
   const priceValues = askPriceHistory.map((point) => point.price);
 
   const maxValue = priceValues.length > 0 ? Math.max(...priceValues) : 0;
