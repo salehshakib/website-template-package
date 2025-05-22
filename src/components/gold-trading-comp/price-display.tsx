@@ -52,6 +52,8 @@ export function PriceDisplay({
   //   setAskPriceHistory(initialData);
   // }, [goldPriceData, askPriceModification]);
 
+  console.log("first");
+
   useEffect(() => {
     const updateInterval = 100; // 100 ms
 
