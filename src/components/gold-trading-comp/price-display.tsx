@@ -31,42 +31,85 @@ export function PriceDisplay({
 
   const [askPriceHistory, setAskPriceHistory] = useState<PriceDataPoint[]>([]);
 
+  // useEffect(() => {
+  //   const updateInterval = 100; // 100 ms interval for updating price
+
+  //   // Set interval to track the price changes
+  //   const interval = setInterval(() => {
+  //     const modifiedAskPrice =
+  //       askPriceModification?.modificationType === "Discount"
+  //         ? goldPrice.askPrice - askPriceModification?.amount
+  //         : askPriceModification?.modificationType === "Premium"
+  //         ? goldPrice.askPrice + askPriceModification?.amount
+  //         : goldPrice.askPrice;
+
+  //     setAskPriceHistory((prev) => {
+  //       const now = Date.now();
+  //       const newDataPoint = {
+  //         price: modifiedAskPrice,
+  //         timestamp: now,
+  //       };
+
+  //       // Calculate the time threshold to keep the last 30 seconds of data
+  //       const thirtySecondsAgo = now - 360000;
+
+  //       // Filter out data points older than 30 seconds
+  //       const newHistory = [...prev, newDataPoint].filter(
+  //         (point) => point.timestamp >= thirtySecondsAgo
+  //       );
+
+  //       return newHistory;
+  //     });
+  //   }, updateInterval);
+
+  //   // Clean up the interval on component unmount
+  //   return () => {
+  //     clearInterval(interval);
+  //   };
+  // }, [askPriceModification, goldPrice]);
+
   useEffect(() => {
-    const updateInterval = 100; // 100 ms interval for updating price
+    const updateInterval = 100; // 100 ms
 
-    // Set interval to track the price changes
     const interval = setInterval(() => {
-      const modifiedAskPrice =
-        askPriceModification?.modificationType === "Discount"
-          ? goldPrice.askPrice - askPriceModification?.amount
-          : askPriceModification?.modificationType === "Premium"
-          ? goldPrice.askPrice + askPriceModification?.amount
-          : goldPrice.askPrice;
+      if (!goldPriceData || goldPriceData.length === 0) return;
 
-      setAskPriceHistory((prev) => {
-        const now = Date.now();
-        const newDataPoint = {
+      const now = Date.now();
+      const thirtySecondsAgo = now - 30000; // 30 seconds
+
+      // Filter goldPriceData for last 30 seconds only
+      const recentGoldPriceData = goldPriceData.filter(
+        (point) => point.timestamp >= thirtySecondsAgo
+      );
+
+      // Map and modify askPrice for each point
+      const modifiedDataPoints = recentGoldPriceData.map((point) => {
+        const modifiedAskPrice =
+          askPriceModification?.modificationType === "Discount"
+            ? point.ask - (askPriceModification?.amount || 0)
+            : askPriceModification?.modificationType === "Premium"
+            ? point.ask + (askPriceModification?.amount || 0)
+            : point.ask;
+
+        return {
           price: modifiedAskPrice,
-          timestamp: now,
+          timestamp: point.timestamp,
         };
+      });
 
-        // Calculate the time threshold to keep the last 30 seconds of data
-        const thirtySecondsAgo = now - 30000;
+      // Append the new modified points to existing askPriceHistory,
+      // then filter out points older than 30 seconds to keep the window clean
+      setAskPriceHistory((prev) => {
+        // Merge old and new data
+        const combined = [...prev, ...modifiedDataPoints];
 
-        // Filter out data points older than 30 seconds
-        const newHistory = [...prev, newDataPoint].filter(
-          (point) => point.timestamp >= thirtySecondsAgo
-        );
-
-        return newHistory;
+        // Filter only last 30 seconds data to avoid unbounded growth
+        return combined.filter((point) => point.timestamp >= thirtySecondsAgo);
       });
     }, updateInterval);
 
-    // Clean up the interval on component unmount
-    return () => {
-      clearInterval(interval);
-    };
-  }, [askPriceModification, goldPrice]);
+    return () => clearInterval(interval);
+  }, [askPriceModification, goldPriceData]);
 
   // Extract just the price values for the chart
   const priceValues = askPriceHistory.map((point) => point.price);
