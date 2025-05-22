@@ -31,33 +31,47 @@ export function PriceDisplay({
 
   const [askPriceHistory, setAskPriceHistory] = useState<PriceDataPoint[]>([]);
 
-  useEffect(() => {
-    if (!goldPriceData.length) return;
+  // useEffect(() => {
+  //   if (!goldPriceData.length) return;
 
-    const initialData = goldPriceData.map((data) => {
-      let modifiedAskPrice = data.ask;
+  //   const initialData = goldPriceData.map((data) => {
+  //     let modifiedAskPrice = data.ask;
 
-      if (askPriceModification?.modificationType === "Discount") {
-        modifiedAskPrice = data.ask - (askPriceModification?.amount ?? 0);
-      } else if (askPriceModification?.modificationType === "Premium") {
-        modifiedAskPrice = data.ask + (askPriceModification?.amount ?? 0);
-      }
+  //     if (askPriceModification?.modificationType === "Discount") {
+  //       modifiedAskPrice = data.ask - (askPriceModification?.amount ?? 0);
+  //     } else if (askPriceModification?.modificationType === "Premium") {
+  //       modifiedAskPrice = data.ask + (askPriceModification?.amount ?? 0);
+  //     }
 
-      return {
-        price: modifiedAskPrice,
-        timestamp: data.timestamp,
-      };
-    });
+  //     return {
+  //       price: modifiedAskPrice,
+  //       timestamp: data.timestamp,
+  //     };
+  //   });
 
-    setAskPriceHistory(initialData);
-  }, [goldPriceData, askPriceModification]);
+  //   setAskPriceHistory(initialData);
+  // }, [goldPriceData, askPriceModification]);
 
-  // Interval only updates new data points, no reset
   useEffect(() => {
     const updateInterval = 100; // 100 ms
 
     const interval = setInterval(() => {
       const now = Date.now();
+
+      // const initialData = goldPriceData.map((data) => {
+      //   let modifiedAskPrice = data.ask;
+
+      //   if (askPriceModification?.modificationType === "Discount") {
+      //     modifiedAskPrice = data.ask - (askPriceModification?.amount ?? 0);
+      //   } else if (askPriceModification?.modificationType === "Premium") {
+      //     modifiedAskPrice = data.ask + (askPriceModification?.amount ?? 0);
+      //   }
+
+      //   return {
+      //     price: modifiedAskPrice,
+      //     timestamp: data.timestamp,
+      //   };
+      // });
 
       let modifiedAskPrice = goldPrice.askPrice;
       if (askPriceModification?.modificationType === "Discount") {
