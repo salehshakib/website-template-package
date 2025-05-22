@@ -32,73 +32,64 @@ export function PriceDisplay({
   const [askPriceHistory, setAskPriceHistory] = useState<PriceDataPoint[]>([]);
 
   useEffect(() => {
-    if (goldPriceData.length) {
-      const oldModifiedData = goldPriceData.map((data) => {
-        const modifiedAskPrice =
-          askPriceModification?.modificationType === "Discount"
-            ? data.ask - askPriceModification?.amount
-            : askPriceModification?.modificationType === "Premium"
-            ? data.ask + askPriceModification?.amount
-            : data.ask;
+    if (!goldPriceData.length) return;
 
-        return {
-          price: modifiedAskPrice,
-          timestamp: data.timestamp,
-        };
-      });
+    const initialData = goldPriceData.map((data) => {
+      let modifiedAskPrice = data.ask;
 
-      setAskPriceHistory(oldModifiedData);
-    }
-  }, [goldPriceData]);
+      if (askPriceModification?.modificationType === "Discount") {
+        modifiedAskPrice = data.ask - (askPriceModification?.amount ?? 0);
+      } else if (askPriceModification?.modificationType === "Premium") {
+        modifiedAskPrice = data.ask + (askPriceModification?.amount ?? 0);
+      }
 
-  console.log("hello");
-  console.log("dont say hello");
+      return {
+        price: modifiedAskPrice,
+        timestamp: data.timestamp,
+      };
+    });
 
-  useEffect(() => {
-    const updateInterval = 100; // 100 ms interval for updating price
+    setAskPriceHistory(initialData);
 
-    // Set interval to track the price changes
+    const updateInterval = 100; // 100 ms
+
     const interval = setInterval(() => {
-      const modifiedAskPrice =
-        askPriceModification?.modificationType === "Discount"
-          ? goldPrice.askPrice - askPriceModification?.amount
-          : askPriceModification?.modificationType === "Premium"
-          ? goldPrice.askPrice + askPriceModification?.amount
-          : goldPrice.askPrice;
+      const now = Date.now();
+
+      let modifiedAskPrice = goldPrice.askPrice;
+      if (askPriceModification?.modificationType === "Discount") {
+        modifiedAskPrice =
+          goldPrice.askPrice - (askPriceModification?.amount ?? 0);
+      } else if (askPriceModification?.modificationType === "Premium") {
+        modifiedAskPrice =
+          goldPrice.askPrice + (askPriceModification?.amount ?? 0);
+      }
 
       setAskPriceHistory((prev) => {
-        const now = Date.now();
         const newDataPoint = {
           price: modifiedAskPrice,
           timestamp: now,
         };
 
-        // Calculate the time threshold to keep the last 30 seconds of data
-        const thirtySecondsAgo = now - 360000;
+        const oneHourAgo = now - 60 * 60 * 1000; // 1 hour ago
 
-        // Filter out data points older than 30 seconds
+        // Keep only the last 1 hour of data
         const newHistory = [...prev, newDataPoint].filter(
-          (point) => point.timestamp >= thirtySecondsAgo
+          (point) => point.timestamp >= oneHourAgo
         );
 
         return newHistory;
       });
     }, updateInterval);
 
-    // Clean up the interval on component unmount
-    return () => {
-      clearInterval(interval);
-    };
-  }, [askPriceModification, goldPrice]);
+    return () => clearInterval(interval);
+  }, [goldPriceData, goldPrice, askPriceModification]);
 
-  // Extract just the price values for the chart
   const priceValues = askPriceHistory.map((point) => point.price);
 
-  // Calculate the max and min values in the 30-second window
   const maxValue = priceValues.length > 0 ? Math.max(...priceValues) : 0;
   const minValue = priceValues.length > 0 ? Math.min(...priceValues) : 0;
 
-  // Find the index of max and min values
   const maxIndex = priceValues.indexOf(maxValue);
   const minIndex = priceValues.indexOf(minValue);
 
