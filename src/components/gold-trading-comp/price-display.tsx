@@ -32,6 +32,26 @@ export function PriceDisplay({
   const [askPriceHistory, setAskPriceHistory] = useState<PriceDataPoint[]>([]);
 
   useEffect(() => {
+    if (goldPriceData.length) {
+      const oldModifiedData = goldPriceData.map((data) => {
+        const modifiedAskPrice =
+          askPriceModification?.modificationType === "Discount"
+            ? data.ask - askPriceModification?.amount
+            : askPriceModification?.modificationType === "Premium"
+            ? data.ask + askPriceModification?.amount
+            : data.ask;
+
+        return {
+          price: modifiedAskPrice,
+          timestamp: data.timestamp,
+        };
+      });
+
+      setAskPriceHistory(oldModifiedData);
+    }
+  }, [goldPriceData]);
+
+  useEffect(() => {
     const updateInterval = 100; // 100 ms interval for updating price
 
     // Set interval to track the price changes
