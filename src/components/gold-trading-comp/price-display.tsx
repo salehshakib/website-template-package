@@ -51,7 +51,7 @@ export function PriceDisplay({
         };
 
         // Calculate the time threshold to keep the last 30 seconds of data
-        const thirtySecondsAgo = now - 30000;
+        const thirtySecondsAgo = now - 360000;
 
         // Filter out data points older than 30 seconds
         const newHistory = [...prev, newDataPoint].filter(
@@ -126,9 +126,7 @@ export function PriceDisplay({
           <div className="mb-2 flex items-center gap-2">
             <span className="text-sm text-yellow-500">ASK</span>
             <span className="text-sm text-white/60">OZ</span>
-            <span className="ml-auto text-sm text-white/60">
-              Last 30 seconds
-            </span>
+            <span className="ml-auto text-sm text-white/60">Last 1 Hour</span>
           </div>
           <div className="h-16">
             <LineChart
