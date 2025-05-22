@@ -51,6 +51,8 @@ export function PriceDisplay({
     }
   }, [goldPriceData]);
 
+  console.log("hello");
+
   useEffect(() => {
     const updateInterval = 100; // 100 ms interval for updating price
 
