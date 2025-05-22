@@ -1,3 +1,10 @@
+## [1.3.8](https://github.com/salehshakib/website-template-package/compare/v1.3.7...v1.3.8) (2025-05-22)
+
+
+### Bug Fixes
+
+* refine useEffect dependencies in PriceDisplay component ([e31228a](https://github.com/salehshakib/website-template-package/commit/e31228ab6e53d4bed1c8c12301f96ca14d7714ad))
+
 ## [1.3.7](https://github.com/salehshakib/website-template-package/compare/v1.3.6...v1.3.7) (2025-05-22)
 
 
