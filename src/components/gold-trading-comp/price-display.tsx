@@ -50,7 +50,10 @@ export function PriceDisplay({
     });
 
     setAskPriceHistory(initialData);
+  }, [goldPriceData, askPriceModification]);
 
+  // Interval only updates new data points, no reset
+  useEffect(() => {
     const updateInterval = 100; // 100 ms
 
     const interval = setInterval(() => {
@@ -83,7 +86,7 @@ export function PriceDisplay({
     }, updateInterval);
 
     return () => clearInterval(interval);
-  }, [goldPriceData, goldPrice, askPriceModification]);
+  }, [goldPrice, askPriceModification]);
 
   console.log("first");
 
