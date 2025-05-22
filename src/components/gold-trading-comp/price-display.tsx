@@ -31,24 +31,24 @@ export function PriceDisplay({
 
   const [askPriceHistory, setAskPriceHistory] = useState<PriceDataPoint[]>([]);
 
-  useEffect(() => {
-    if (goldPriceData.length) {
-      const oldModifiedData = goldPriceData.map((price) => {
-        const modifiedAskPrice =
-          askPriceModification?.modificationType === "Discount"
-            ? price.ask - askPriceModification?.amount
-            : askPriceModification?.modificationType === "Premium"
-            ? price.ask + askPriceModification?.amount
-            : price.ask;
+  // useEffect(() => {
+  //   if (goldPriceData.length) {
+  //     const oldModifiedData = goldPriceData.map((price) => {
+  //       const modifiedAskPrice =
+  //         askPriceModification?.modificationType === "Discount"
+  //           ? price.ask - askPriceModification?.amount
+  //           : askPriceModification?.modificationType === "Premium"
+  //           ? price.ask + askPriceModification?.amount
+  //           : price.ask;
 
-        return {
-          price: modifiedAskPrice,
-          timestamp: price.timestamp,
-        };
-      });
-      setAskPriceHistory(oldModifiedData);
-    }
-  }, [goldPriceData]);
+  //       return {
+  //         price: modifiedAskPrice,
+  //         timestamp: price.timestamp,
+  //       };
+  //     });
+  //     setAskPriceHistory(oldModifiedData);
+  //   }
+  // }, [goldPriceData]);
 
   useEffect(() => {
     const updateInterval = 100; // 100 ms interval for updating price
