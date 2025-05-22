@@ -1,11 +1,13 @@
 // import { BASE_URLS } from "@/api/endpoints/base.api";
 // import { BASE_URL } from "@/constants/base-url.constants";
 // import { BaseUrlType } from "@/types/base-url.types";
+import { jwtDecode } from "jwt-decode";
 import {
   refreshToken,
   checkIfTokenExpired,
   logOut,
 } from "../auth/config/custom-auth";
+import Cookies from "js-cookie";
 
 const baseApiUrl = "https://backend.staging.identity.dreamemirates.com/api/";
 
@@ -31,18 +33,29 @@ const buildUrlWithParams = (url: string, params?: Record<string, any>) => {
   return newUrl.toString();
 };
 
+function isExpired(token: string): boolean {
+  try {
+    const { exp } = jwtDecode<{ exp: number }>(token);
+    const isExpired = Date.now() >= exp * 1000 - 30000;
+    return isExpired;
+  } catch (error) {
+    return true;
+  }
+}
+
 const customFetch = async (
   url: string,
   method: "GET" | "POST" | "PUT" | "PATCH" | "DELETE" = "GET",
   body: any = null,
   isMultipart = false
 ) => {
-  let token = localStorage.getItem("token") || null;
+  let token = Cookies.get("token");
+  const refresh = Cookies.get("refresh_token");
 
-  if (token && checkIfTokenExpired(token)) {
-    const data = await refreshToken();
+  if (token && refresh && isExpired(String(token))) {
+    const data: any = await refreshToken(refresh);
 
-    token = data?.access_token || null;
+    token = data.access_token;
   }
 
   const headers: Record<string, string> = {

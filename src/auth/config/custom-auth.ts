@@ -1,4 +1,4 @@
-import { jwtDecode } from 'jwt-decode';
+import { jwtDecode } from "jwt-decode";
 
 const API_LOGIN_URL = process.env.NEXT_PUBLIC_API_LOGIN_URL;
 const TOKEN_URL = process.env.NEXT_PUBLIC_API_TOKEN_URL;
@@ -8,20 +8,20 @@ const CODE_CHALLENGE = process.env.NEXT_PUBLIC_CODE_CHALLENGE;
 const CODE_VERIFIER = process.env.NEXT_PUBLIC_CODE_VERIFIER;
 
 const getRedirectUri = () => {
-  if (typeof window !== 'undefined') {
+  if (typeof window !== "undefined") {
     return window.location.href;
   }
-  return '';
+  return "";
 };
 
 const saveTokens = (accessToken: string, refreshToken: string) => {
-  localStorage.setItem('token', accessToken);
-  localStorage.setItem('refresh_token', refreshToken);
+  localStorage.setItem("token", accessToken);
+  localStorage.setItem("refresh_token", refreshToken);
 };
 
 const removeTokens = () => {
-  localStorage.removeItem('token');
-  localStorage.removeItem('refresh_token');
+  localStorage.removeItem("token");
+  localStorage.removeItem("refresh_token");
 };
 
 export const checkAuthorized = () => {
@@ -34,38 +34,35 @@ export const getToken = async (authCode: string) => {
   try {
     const response = await fetch(
       `${TOKEN_URL}/oauth/token?grant_type=authorization_code&client_id=${CLIENT_ID}&code=${authCode}&redirect_uri=${REDIRECT_URI}&code_verifier=${CODE_VERIFIER}`,
-      { method: 'POST' }
+      { method: "POST" }
     );
 
     if (!response.ok) {
-      throw new Error('Failed to call get token after login');
+      throw new Error("Failed to call get token after login");
     }
 
     const data = await response.json();
 
     if (data) {
-      localStorage.setItem('token', data.access_token);
-      localStorage.setItem('refresh_token', data.refresh_token);
+      localStorage.setItem("token", data.access_token);
+      localStorage.setItem("refresh_token", data.refresh_token);
     }
   } catch (error) {
-    console.error('Error during get token:', error);
+    console.error("Error during get token:", error);
     throw error;
   }
 };
 
-export const refreshToken = async () => {
-  const refreshToken = localStorage.getItem('refresh_token');
-  if (!refreshToken) return logOut();
-
+export const refreshToken = async (refresh: string) => {
   try {
     const response = await fetch(
-      `${TOKEN_URL}/oauth/token/refresh?client_id=${CLIENT_ID}&refresh_token=${refreshToken}&grant_type=refresh_token`,
+      `${TOKEN_URL}/oauth/token/refresh?client_id=${CLIENT_ID}&refresh_token=${refresh}&grant_type=refresh_token`,
       {
-        method: 'POST',
+        method: "POST",
       }
     );
 
-    if (!response.ok) throw new Error('Failed to refresh token');
+    if (!response.ok) throw new Error("Failed to refresh token");
 
     const data = await response.json();
 
@@ -73,7 +70,7 @@ export const refreshToken = async () => {
 
     return data;
   } catch (error) {
-    console.error('Error during refreshToken:', error);
+    console.error("Error during refreshToken:", error);
     logOut();
     throw error;
   }
@@ -90,7 +87,7 @@ export const checkIfTokenExpired = (token: string): boolean => {
     const { exp } = jwtDecode<{ exp: number }>(token);
     return Date.now() >= exp * 1000;
   } catch (error) {
-    console.error('Error decoding token:', error);
+    console.error("Error decoding token:", error);
     return true;
   }
 };
