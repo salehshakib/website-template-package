@@ -1,3 +1,10 @@
+## [1.3.4](https://github.com/salehshakib/website-template-package/compare/v1.3.3...v1.3.4) (2025-05-22)
+
+
+### Bug Fixes
+
+* update ask price calculation in PriceDisplay component based on modifications ([692b939](https://github.com/salehshakib/website-template-package/commit/692b9390f38458ed320a8d0bd958714490411e61))
+
 ## [1.3.3](https://github.com/salehshakib/website-template-package/compare/v1.3.2...v1.3.3) (2025-05-22)
 
 
