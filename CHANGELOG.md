@@ -1,3 +1,10 @@
+## [1.3.7](https://github.com/salehshakib/website-template-package/compare/v1.3.6...v1.3.7) (2025-05-22)
+
+
+### Bug Fixes
+
+* add console log for debugging in PriceDisplay component ([b4a35f3](https://github.com/salehshakib/website-template-package/commit/b4a35f37a7ea647d32a72e399c21f6a94293dc59))
+
 ## [1.3.6](https://github.com/salehshakib/website-template-package/compare/v1.3.5...v1.3.6) (2025-05-22)
 
 
