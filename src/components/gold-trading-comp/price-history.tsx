@@ -28,7 +28,11 @@ export function PriceHistory({
     return () => clearInterval(interval);
   }, []);
 
-  console.log({ priceHistory });
+  console.log(
+    priceHistory.map((price) =>
+      new Date(price.timestamp * 1000).toLocaleTimeString()
+    )
+  );
 
   return (
     <div>
