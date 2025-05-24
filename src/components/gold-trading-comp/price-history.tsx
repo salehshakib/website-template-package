@@ -20,10 +20,8 @@ export function PriceHistory({
   useEffect(() => {
     const interval = setInterval(() => {
       setPriceHistory((prev) => {
-        const newHistory = [
-          { ...goldPrice, timestamp: Number(new Date().toISOString()) },
-          ...prev,
-        ]; // Add new data at the beginning
+        console.log(new Date(goldPrice.timestamp).toISOString());
+        const newHistory = [goldPrice, ...prev]; // Add new data at the beginning
         return newHistory.slice(0, 10); // Keep only the last 10 values
       });
     }, 1000); // Update every 1 second
