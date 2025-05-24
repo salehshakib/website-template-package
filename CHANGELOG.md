@@ -1,3 +1,10 @@
+## [1.3.14](https://github.com/salehshakib/website-template-package/compare/v1.3.13...v1.3.14) (2025-05-24)
+
+
+### Bug Fixes
+
+* add logging for gold price timestamp in PriceHistory component ([199946b](https://github.com/salehshakib/website-template-package/commit/199946bfcc57dafabaf744a0ed381b58a08fd450))
+
 ## [1.3.13](https://github.com/salehshakib/website-template-package/compare/v1.3.12...v1.3.13) (2025-05-24)
 
 
