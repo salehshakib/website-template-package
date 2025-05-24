@@ -1,3 +1,10 @@
+## [1.3.22](https://github.com/salehshakib/website-template-package/compare/v1.3.21...v1.3.22) (2025-05-24)
+
+
+### Bug Fixes
+
+* improve console log output for price history timestamps ([f5f24da](https://github.com/salehshakib/website-template-package/commit/f5f24da6a06497c6bf6f0c71248fa4e27eb189dd))
+
 ## [1.3.21](https://github.com/salehshakib/website-template-package/compare/v1.3.20...v1.3.21) (2025-05-24)
 
 
