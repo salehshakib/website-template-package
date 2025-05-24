@@ -29,10 +29,6 @@ export function PriceHistory({
     return () => clearInterval(interval); // Cleanup interval on component unmount
   }, []);
 
-  // useEffect(() => {
-  //   setPriceHistory((prev) => [goldPrice, ...prev].slice(0, 10));
-  // }, [goldPrice]);
-
   return (
     <div>
       <h2 className="mb-4 text-sm text-white/60">
