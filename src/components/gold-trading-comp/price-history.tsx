@@ -20,12 +20,12 @@ export function PriceHistory({
   useEffect(() => {
     const interval = setInterval(() => {
       setPriceHistory((prev) => {
-        const newHistory = [goldPrice, ...prev]; // Add new data at the beginning
-        return newHistory.slice(0, 10); // Keep only the last 10 values
+        const newHistory = [goldPrice, ...prev];
+        return newHistory.slice(0, 10);
       });
-    }, 1000); // Update every 1 second
+    }, 1000);
 
-    return () => clearInterval(interval); // Cleanup interval on component unmount
+    return () => clearInterval(interval);
   }, []);
 
   return (
