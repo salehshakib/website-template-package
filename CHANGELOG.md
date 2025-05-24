@@ -1,3 +1,10 @@
+## [1.3.21](https://github.com/salehshakib/website-template-package/compare/v1.3.20...v1.3.21) (2025-05-24)
+
+
+### Bug Fixes
+
+* update timestamp formatting in PriceHistory component to ensure AM/PM display ([773d462](https://github.com/salehshakib/website-template-package/commit/773d462d84fad0e99cc852315bbf3085db3fd072))
+
 ## [1.3.20](https://github.com/salehshakib/website-template-package/compare/v1.3.19...v1.3.20) (2025-05-24)
 
 
