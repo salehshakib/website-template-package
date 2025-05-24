@@ -1,3 +1,10 @@
+## [1.3.12](https://github.com/salehshakib/website-template-package/compare/v1.3.11...v1.3.12) (2025-05-24)
+
+
+### Bug Fixes
+
+* refactor price history update logic in PriceHistory component ([53491e8](https://github.com/salehshakib/website-template-package/commit/53491e864f897c26a3ac714f36b32ddaf62fb0b4))
+
 ## [1.3.11](https://github.com/salehshakib/website-template-package/compare/v1.3.10...v1.3.11) (2025-05-24)
 
 

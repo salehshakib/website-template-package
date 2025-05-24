@@ -1,6 +1,6 @@
 {
   "name": "website-templates",
-  "version": "1.3.11",
+  "version": "1.3.12",
   "description": "A React component for an Website Templates styled with Tailwind CSS",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
