@@ -1,3 +1,10 @@
+## [1.3.11](https://github.com/salehshakib/website-template-package/compare/v1.3.10...v1.3.11) (2025-05-24)
+
+
+### Bug Fixes
+
+* remove unused dependencies from package.json ([58bedad](https://github.com/salehshakib/website-template-package/commit/58bedade7c1283a7cfe47517ad8383eeadb81785))
+
 ## [1.3.10](https://github.com/salehshakib/website-template-package/compare/v1.3.9...v1.3.10) (2025-05-24)
 
 
