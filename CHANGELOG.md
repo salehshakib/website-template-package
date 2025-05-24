@@ -1,3 +1,10 @@
+## [1.3.17](https://github.com/salehshakib/website-template-package/compare/v1.3.16...v1.3.17) (2025-05-24)
+
+
+### Bug Fixes
+
+* remove console log from price history updates and update gold price API endpoint ([cdf33bd](https://github.com/salehshakib/website-template-package/commit/cdf33bd8ab260f759e4fc739c8df9e68a4499206))
+
 ## [1.3.16](https://github.com/salehshakib/website-template-package/compare/v1.3.15...v1.3.16) (2025-05-24)
 
 
