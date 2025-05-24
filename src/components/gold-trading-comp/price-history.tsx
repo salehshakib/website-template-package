@@ -28,6 +28,8 @@ export function PriceHistory({
     return () => clearInterval(interval);
   }, []);
 
+  console.log({ priceHistory });
+
   return (
     <div>
       <h2 className="mb-4 text-sm text-white/60">
