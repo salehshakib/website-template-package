@@ -1,3 +1,10 @@
+## [1.3.10](https://github.com/salehshakib/website-template-package/compare/v1.3.9...v1.3.10) (2025-05-24)
+
+
+### Bug Fixes
+
+* update husky and remove commitlint ([035c57c](https://github.com/salehshakib/website-template-package/commit/035c57c48c14ac090ffff7b5cd049ec4b8aaaeec))
+
 ## [1.3.9](https://github.com/salehshakib/website-template-package/compare/v1.3.8...v1.3.9) (2025-05-22)
 
 
