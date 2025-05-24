@@ -17,20 +17,23 @@ export function PriceHistory({
 }: PriceDataProps) {
   const [priceHistory, setPriceHistory] = useState<GoldPrice[]>([]);
 
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     setPriceHistory((prev) => {
-  //       const newHistory = [goldPrice, ...prev]; // Add new data at the beginning
-  //       return newHistory.slice(0, 10); // Keep only the last 10 values
-  //     });
-  //   }, 1000); // Update every 1 second
-
-  //   return () => clearInterval(interval); // Cleanup interval on component unmount
-  // }, []);
-
   useEffect(() => {
-    setPriceHistory((prev) => [goldPrice, ...prev].slice(0, 10));
-  }, [goldPrice]);
+    const interval = setInterval(() => {
+      setPriceHistory((prev) => {
+        const newHistory = [
+          { ...goldPrice, timestamp: Number(new Date().toISOString()) },
+          ...prev,
+        ]; // Add new data at the beginning
+        return newHistory.slice(0, 10); // Keep only the last 10 values
+      });
+    }, 1000); // Update every 1 second
+
+    return () => clearInterval(interval); // Cleanup interval on component unmount
+  }, []);
+
+  // useEffect(() => {
+  //   setPriceHistory((prev) => [goldPrice, ...prev].slice(0, 10));
+  // }, [goldPrice]);
 
   return (
     <div>
