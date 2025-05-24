@@ -21,7 +21,7 @@ export function PriceHistory({
     const interval = setInterval(() => {
       setPriceHistory((prev) => {
         const newHistory = [goldPrice, ...prev]; // Add new data at the beginning
-        return newHistory.reverse().slice(0, 10); // Keep only the last 10 values
+        return newHistory.slice(0, 10); // Keep only the last 10 values
       });
     }, 1000); // Update every 1 second
 
