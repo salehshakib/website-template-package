@@ -1,3 +1,10 @@
+## [1.3.16](https://github.com/salehshakib/website-template-package/compare/v1.3.15...v1.3.16) (2025-05-24)
+
+
+### Bug Fixes
+
+* remove redundant useEffect for price history updates ([74e4703](https://github.com/salehshakib/website-template-package/commit/74e470376b67ffcb024ded729875ef209e566de5))
+
 ## [1.3.15](https://github.com/salehshakib/website-template-package/compare/v1.3.14...v1.3.15) (2025-05-24)
 
 
