@@ -2,13 +2,8 @@ import useMetalPriceLive from "metal-price-live";
 
 export const isProduction = process.env.NEXT_PUBLIC_MODE === "production";
 
-const endpoint = isProduction
-  ? process.env.NEXT_PUBLIC_GOLD_API_PRODUCTION_ENDPOINT || ""
-  : "wss://staging.karnaphulijewellery.com/api";
-
-const apiKey = isProduction
-  ? process.env.NEXT_PUBLIC_GOLD_API_KEY || ""
-  : "test";
+const endpoint = "wss://api.dreamemirates.com";
+const apiKey = "OZzsZ1GQORWllqCY8lydekjQcsJT9a4k";
 
 const useGoldPrices = () => {
   const { status, data: gold } = useMetalPriceLive(endpoint, apiKey);
