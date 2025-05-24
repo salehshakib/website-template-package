@@ -1,3 +1,10 @@
+## [1.3.19](https://github.com/salehshakib/website-template-package/compare/v1.3.18...v1.3.19) (2025-05-24)
+
+
+### Bug Fixes
+
+* correct price history order by removing unnecessary reverse ([fe23aa1](https://github.com/salehshakib/website-template-package/commit/fe23aa1e742e3e093b85c20d88745302970d3b2d))
+
 ## [1.3.18](https://github.com/salehshakib/website-template-package/compare/v1.3.17...v1.3.18) (2025-05-24)
 
 
