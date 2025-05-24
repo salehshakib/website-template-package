@@ -1,3 +1,10 @@
+## [1.3.18](https://github.com/salehshakib/website-template-package/compare/v1.3.17...v1.3.18) (2025-05-24)
+
+
+### Bug Fixes
+
+* update timestamp formatting to use Asia/Dhaka timezone ([ca43055](https://github.com/salehshakib/website-template-package/commit/ca43055b4ac5320c34435b6b6cd4ea6d09dd38ef))
+
 ## [1.3.17](https://github.com/salehshakib/website-template-package/compare/v1.3.16...v1.3.17) (2025-05-24)
 
 
