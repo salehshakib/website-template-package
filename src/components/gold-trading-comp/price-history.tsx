@@ -51,7 +51,12 @@ export function PriceHistory({
                     className="border-t border-white/5 text-white"
                   >
                     <td className="py-2 text-sm">
-                      {new Date(price.timestamp).toLocaleTimeString()}
+                      {new Date(price.timestamp).toLocaleTimeString("en-US", {
+                        timeZone: "Asia/Dhaka",
+                        hour: "2-digit",
+                        minute: "2-digit",
+                        second: "2-digit",
+                      })}
                     </td>
                     <td className="py-2 text-right">
                       {bidPriceModification?.modificationType.toLowerCase() ===
