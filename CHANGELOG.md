@@ -1,3 +1,10 @@
+## [1.7.1](https://github.com/salehshakib/website-template-package/compare/v1.7.0...v1.7.1) (2025-06-03)
+
+
+### Bug Fixes
+
+* add opacity to star elements in StarryNight component ([2c4edea](https://github.com/salehshakib/website-template-package/commit/2c4edeabee078df87001c82df8c1cdbc286a0543))
+
 # [1.7.0](https://github.com/salehshakib/website-template-package/compare/v1.6.2...v1.7.0) (2025-06-03)
 
 
