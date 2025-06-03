@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/salehshakib/website-template-package/compare/v1.3.24...v1.4.0) (2025-06-03)
+
+
+### Features
+
+* add debug log for templates data ([b46c7f5](https://github.com/salehshakib/website-template-package/commit/b46c7f5fb360edbaf78a97aed61957525f69dc91))
+
 ## [1.3.24](https://github.com/salehshakib/website-template-package/compare/v1.3.23...v1.3.24) (2025-06-03)
 
 
