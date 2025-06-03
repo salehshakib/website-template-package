@@ -66,6 +66,8 @@ export default function WebsiteTemplates({ websiteId }: WebsiteTemplatesProps) {
 
   console.log({ templatesData });
 
+  console.log("{ hello }");
+
   const loading =
     websiteLoading || isGoldPriceDataLoading || isTemplatesDataLoading;
 
