@@ -1,5 +1,3 @@
-Here’s your fixed and complete `README.md` content with all markdown code blocks and formatting properly closed and aligned:
-
 ```md
 # Dream Website Templates
 
