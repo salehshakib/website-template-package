@@ -1,3 +1,10 @@
+## [1.3.23](https://github.com/salehshakib/website-template-package/compare/v1.3.22...v1.3.23) (2025-06-03)
+
+
+### Bug Fixes
+
+* remove unnecessary console log in PriceHistory component ([d80ed0f](https://github.com/salehshakib/website-template-package/commit/d80ed0f2e2136c05adfe8e593e2fe7eccdabf9ab))
+
 ## [1.3.22](https://github.com/salehshakib/website-template-package/compare/v1.3.21...v1.3.22) (2025-05-24)
 
 
