@@ -59,8 +59,8 @@ export default function WebsiteTemplates({ websiteId }: WebsiteTemplatesProps) {
     useFetchData<ITemplate[]>({
       url: identityApi.GET_ALL_TEMPLATES,
       params: {
-        filter: searchFilter({ category: "Website" }),
-        sort: "%2BcreatedAt",
+        // filter: searchFilter({ category: "Website" }),
+        // sort: "%2BcreatedAt",
       },
     });
 
