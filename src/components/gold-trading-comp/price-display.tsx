@@ -31,47 +31,11 @@ export function PriceDisplay({
 
   const [askPriceHistory, setAskPriceHistory] = useState<PriceDataPoint[]>([]);
 
-  // useEffect(() => {
-  //   if (!goldPriceData.length) return;
-
-  //   const initialData = goldPriceData.map((data) => {
-  //     let modifiedAskPrice = data.ask;
-
-  //     if (askPriceModification?.modificationType === "Discount") {
-  //       modifiedAskPrice = data.ask - (askPriceModification?.amount ?? 0);
-  //     } else if (askPriceModification?.modificationType === "Premium") {
-  //       modifiedAskPrice = data.ask + (askPriceModification?.amount ?? 0);
-  //     }
-
-  //     return {
-  //       price: modifiedAskPrice,
-  //       timestamp: data.timestamp,
-  //     };
-  //   });
-
-  //   setAskPriceHistory(initialData);
-  // }, [goldPriceData, askPriceModification]);
-
   useEffect(() => {
     const updateInterval = 100; // 100 ms
 
     const interval = setInterval(() => {
       const now = Date.now();
-
-      // const initialData = goldPriceData.map((data) => {
-      //   let modifiedAskPrice = data.ask;
-
-      //   if (askPriceModification?.modificationType === "Discount") {
-      //     modifiedAskPrice = data.ask - (askPriceModification?.amount ?? 0);
-      //   } else if (askPriceModification?.modificationType === "Premium") {
-      //     modifiedAskPrice = data.ask + (askPriceModification?.amount ?? 0);
-      //   }
-
-      //   return {
-      //     price: modifiedAskPrice,
-      //     timestamp: data.timestamp,
-      //   };
-      // });
 
       let modifiedAskPrice = goldPrice.askPrice;
       if (askPriceModification?.modificationType === "Discount") {
@@ -88,9 +52,8 @@ export function PriceDisplay({
           timestamp: now,
         };
 
-        const oneHourAgo = now - 60 * 60 * 1000; // 1 hour ago
+        const oneHourAgo = now - 60 * 60 * 1000;
 
-        // Keep only the last 1 hour of data
         const newHistory = [...prev, newDataPoint].filter(
           (point) => point.timestamp >= oneHourAgo
         );
