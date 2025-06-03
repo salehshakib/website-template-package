@@ -1,3 +1,10 @@
+## [1.3.24](https://github.com/salehshakib/website-template-package/compare/v1.3.23...v1.3.24) (2025-06-03)
+
+
+### Bug Fixes
+
+* add sorting parameter to fetch website templates ([ab6bdd4](https://github.com/salehshakib/website-template-package/commit/ab6bdd481ad7f31ecdd6737de6138170b991569e))
+
 ## [1.3.23](https://github.com/salehshakib/website-template-package/compare/v1.3.22...v1.3.23) (2025-06-03)
 
 
