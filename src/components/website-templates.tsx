@@ -36,6 +36,8 @@ const searchFilter = ({ id, category }: { id?: string; category?: string }) => {
     filterGroups.push(["category", "eq", category]);
   }
 
+  filterGroups.push(["status", "eq", "ACTIVE"]);
+
   if (filterGroups.length === 0) return "";
 
   return buildFSStr({ filters: filterGroups });
