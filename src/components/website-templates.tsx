@@ -60,6 +60,7 @@ export default function WebsiteTemplates({ websiteId }: WebsiteTemplatesProps) {
       url: identityApi.GET_ALL_TEMPLATES,
       params: {
         filter: searchFilter({ category: "Website" }),
+        sort: "%2BcreatedAt",
       },
     });
 
