@@ -1,3 +1,10 @@
+## [1.4.2](https://github.com/salehshakib/website-template-package/compare/v1.4.1...v1.4.2) (2025-06-03)
+
+
+### Bug Fixes
+
+* clean up README.md formatting and remove unnecessary content ([d7a2347](https://github.com/salehshakib/website-template-package/commit/d7a2347489e180d59725c36298020720c371ef3c))
+
 ## [1.4.1](https://github.com/salehshakib/website-template-package/compare/v1.4.0...v1.4.1) (2025-06-03)
 
 
