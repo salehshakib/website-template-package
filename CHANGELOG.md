@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/salehshakib/website-template-package/compare/v1.4.0...v1.4.1) (2025-06-03)
+
+
+### Bug Fixes
+
+* comment out unused filter and sort parameters in fetch templates data ([ce293b4](https://github.com/salehshakib/website-template-package/commit/ce293b426043c305ba75a717c0d2b30664cfa48a))
+
 # [1.4.0](https://github.com/salehshakib/website-template-package/compare/v1.3.24...v1.4.0) (2025-06-03)
 
 
