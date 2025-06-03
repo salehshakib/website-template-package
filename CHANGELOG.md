@@ -1,3 +1,10 @@
+## [1.4.3](https://github.com/salehshakib/website-template-package/compare/v1.4.2...v1.4.3) (2025-06-03)
+
+
+### Bug Fixes
+
+* uncomment sorting parameter in fetch request for templates ([0f331a4](https://github.com/salehshakib/website-template-package/commit/0f331a4e318464ac541c2d40d3954954d910c885))
+
 ## [1.4.2](https://github.com/salehshakib/website-template-package/compare/v1.4.1...v1.4.2) (2025-06-03)
 
 
