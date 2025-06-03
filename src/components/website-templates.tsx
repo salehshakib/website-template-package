@@ -60,14 +60,10 @@ export default function WebsiteTemplates({ websiteId }: WebsiteTemplatesProps) {
     useFetchData<ITemplate[]>({
       url: identityApi.GET_ALL_TEMPLATES,
       params: {
-        // filter: searchFilter({ category: "Website" }),
+        filter: searchFilter({ category: "Website" }),
         sort: "%2BcreatedAt",
       },
     });
-
-  console.log({ templatesData });
-
-  console.log("{ hello }");
 
   const loading =
     websiteLoading || isGoldPriceDataLoading || isTemplatesDataLoading;
@@ -77,8 +73,6 @@ export default function WebsiteTemplates({ websiteId }: WebsiteTemplatesProps) {
   const matchedIndex = templatesData?.findIndex(
     (t: any) => t._id === myWebsite?.templateInfo?._id
   );
-
-  console.log({ myWebsite });
 
   if (!myWebsite || !goldPriceData) return <Loading />;
 
