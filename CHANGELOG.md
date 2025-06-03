@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/salehshakib/website-template-package/compare/v1.6.2...v1.7.0) (2025-06-03)
+
+
+### Features
+
+* enhance styling with new CSS variables and scrollbar customization ([b2c3927](https://github.com/salehshakib/website-template-package/commit/b2c3927405581fd6e71aef3bda7884da14dc3411))
+
 ## [1.6.2](https://github.com/salehshakib/website-template-package/compare/v1.6.1...v1.6.2) (2025-06-03)
 
 
