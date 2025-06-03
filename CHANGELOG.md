@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/salehshakib/website-template-package/compare/v1.5.0...v1.6.0) (2025-06-03)
+
+
+### Features
+
+* update tsconfig to include types directory and add website-templates type definitions ([1145418](https://github.com/salehshakib/website-template-package/commit/1145418f6cdd86457ff3f4f5d6eef5c0bf408df1))
+
 # [1.5.0](https://github.com/salehshakib/website-template-package/compare/v1.4.3...v1.5.0) (2025-06-03)
 
 
