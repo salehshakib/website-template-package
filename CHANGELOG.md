@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/salehshakib/website-template-package/compare/v1.4.3...v1.5.0) (2025-06-03)
+
+
+### Features
+
+* add GoldTemplateFive component with live gold price and market overview ([b4a1368](https://github.com/salehshakib/website-template-package/commit/b4a1368ba1ff7bc25f493ad982e9c4497028418e))
+
 ## [1.4.3](https://github.com/salehshakib/website-template-package/compare/v1.4.2...v1.4.3) (2025-06-03)
 
 
