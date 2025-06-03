@@ -8,6 +8,7 @@ import {
   IWebsite,
   TGoldPriceData,
 } from "../types/identity.interface";
+import GoldTemplateFive from "./templates/gold-template-five";
 import GoldTemplateFour from "./templates/gold-template-four";
 import GoldTemplateOne from "./templates/gold-template-one";
 import GoldTemplateThree from "./templates/gold-template-three";
@@ -93,6 +94,8 @@ export default function WebsiteTemplates({ websiteId }: WebsiteTemplatesProps) {
         <GoldTemplateThree webInfo={myWebsite} />
       ) : matchedIndex === 3 ? (
         <GoldTemplateFour webInfo={myWebsite} />
+      ) : matchedIndex === 4 ? (
+        <GoldTemplateFive webInfo={myWebsite} />
       ) : (
         <div className="flex min-h-screen items-center justify-center">
           Template not found

@@ -19,11 +19,6 @@ export default function GoldTemplateFour({ webInfo }: { webInfo: any }) {
   // Calculate gold prices using the server-side utility with only goldPrice
   const goldPrices = calculateModifiedGoldPrices(goldPrice, webInfo, 2);
 
-  // Format number with commas
-  const formatNumber = (num: number) => {
-    return num.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  };
-
   const productList = [
     {
       name: "TEN TOLA BAR",
