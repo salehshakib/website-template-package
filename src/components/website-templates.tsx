@@ -63,6 +63,8 @@ export default function WebsiteTemplates({ websiteId }: WebsiteTemplatesProps) {
       },
     });
 
+  console.log({ templatesData });
+
   const loading =
     websiteLoading || isGoldPriceDataLoading || isTemplatesDataLoading;
 
