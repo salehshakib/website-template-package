@@ -24,7 +24,7 @@ const StarryNight: React.FC = () => {
         newStars.push(
           <div
             key={i}
-            className="absolute bg-white rounded-full w-2 h-2 opacity-0 animate-twinkle"
+            className="absolute bg-white rounded-full w-2 h-2 animate-twinkle"
             style={style}
           />
         );
