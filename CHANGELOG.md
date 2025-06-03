@@ -1,3 +1,10 @@
+## [1.6.1](https://github.com/salehshakib/website-template-package/compare/v1.6.0...v1.6.1) (2025-06-03)
+
+
+### Bug Fixes
+
+* ensure active status is included in search filter ([4c262b4](https://github.com/salehshakib/website-template-package/commit/4c262b40539cc643381668a87c7be4b9b646aea0))
+
 # [1.6.0](https://github.com/salehshakib/website-template-package/compare/v1.5.0...v1.6.0) (2025-06-03)
 
 
